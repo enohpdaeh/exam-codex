@@ -1,25 +1,53 @@
-const root = document.documentElement;
-const themeToggle = document.getElementById("themeToggle");
-const cta = document.getElementById("cta");
+const pawStream = document.querySelector(".paw-stream");
+const pulseToggle = document.getElementById("pulseToggle");
+const scrollGallery = document.getElementById("scrollGallery");
+const colorBlast = document.getElementById("colorBlast");
+const backTop = document.getElementById("backTop");
 
-const updateThemeLabel = () => {
-  const isDark = root.dataset.theme === "dark";
-  themeToggle.textContent = isDark ? "Light" : "Dark";
+const createPaw = () => {
+  const paw = document.createElement("span");
+  paw.className = "paw";
+  const size = Math.random() * 16 + 18;
+  paw.style.width = `${size}px`;
+  paw.style.height = `${size}px`;
+  paw.style.left = `${Math.random() * 100}%`;
+  paw.style.animationDuration = `${Math.random() * 6 + 6}s`;
+  paw.style.animationDelay = `${Math.random() * 3}s`;
+  pawStream.appendChild(paw);
+
+  paw.addEventListener("animationend", () => {
+    paw.remove();
+  });
 };
 
-themeToggle.addEventListener("click", () => {
-  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-  updateThemeLabel();
+const spawnPaws = () => {
+  for (let i = 0; i < 10; i += 1) {
+    createPaw();
+  }
+};
+
+spawnPaws();
+setInterval(createPaw, 1200);
+
+pulseToggle.addEventListener("click", () => {
+  document.body.classList.toggle("color-blast");
+  const active = document.body.classList.contains("color-blast");
+  pulseToggle.textContent = active ? "鼓動OFF" : "鼓動ON";
 });
 
-updateThemeLabel();
+colorBlast.addEventListener("click", () => {
+  document.body.classList.toggle("color-blast");
+});
 
-cta.addEventListener("click", () => {
-  document.querySelector("#features").scrollIntoView({ behavior: "smooth" });
+scrollGallery.addEventListener("click", () => {
+  document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
+});
+
+backTop.addEventListener("click", () => {
+  document.getElementById("top").scrollIntoView({ behavior: "smooth" });
 });
 
 const counters = document.querySelectorAll("[data-count]");
-
 const counterObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -27,7 +55,7 @@ const counterObserver = new IntersectionObserver(
       const el = entry.target;
       const target = Number(el.dataset.count);
       let current = 0;
-      const step = Math.max(1, Math.round(target / 60));
+      const step = Math.max(1, Math.round(target / 50));
       const tick = () => {
         current = Math.min(target, current + step);
         el.textContent = current;
@@ -44,57 +72,11 @@ const counterObserver = new IntersectionObserver(
 
 counters.forEach((counter) => counterObserver.observe(counter));
 
-const fadeTargets = document.querySelectorAll(".fade-up");
-const fadeObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
-
-fadeTargets.forEach((target) => fadeObserver.observe(target));
-
-const canvas = document.getElementById("pulse");
-const ctx = canvas.getContext("2d");
-const resize = () => {
-  canvas.width = canvas.clientWidth * devicePixelRatio;
-  canvas.height = canvas.clientHeight * devicePixelRatio;
+const hero = document.querySelector(".hero");
+const handleParallax = () => {
+  const offset = window.scrollY;
+  hero.style.transform = `translateY(${offset * 0.05}px)`;
+  requestAnimationFrame(handleParallax);
 };
 
-const points = Array.from({ length: 64 }, (_, i) => ({
-  x: i / 63,
-  amplitude: Math.random() * 0.6 + 0.2,
-  speed: Math.random() * 0.02 + 0.01,
-  offset: Math.random() * Math.PI * 2,
-}));
-
-const draw = (t) => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.lineWidth = 3 * devicePixelRatio;
-  ctx.strokeStyle = root.dataset.theme === "dark" ? "#38bdf8" : "#6d6bff";
-  ctx.beginPath();
-  points.forEach((point, i) => {
-    const x = point.x * canvas.width;
-    const y =
-      canvas.height / 2 +
-      Math.sin(t * point.speed + point.offset) *
-        (canvas.height * 0.2) *
-        point.amplitude;
-    if (i === 0) {
-      ctx.moveTo(x, y);
-    } else {
-      ctx.lineTo(x, y);
-    }
-  });
-  ctx.stroke();
-  requestAnimationFrame(draw);
-};
-
-resize();
-window.addEventListener("resize", resize);
-requestAnimationFrame(draw);
+requestAnimationFrame(handleParallax);
