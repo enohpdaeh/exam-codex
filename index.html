@@ -3,127 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nova Pulse | モダンUIデモ</title>
+  <title>モフ・カオス | ふしぎ猫の魅力紹介</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;700&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <nav class="nav">
-      <div class="logo">
-        <span class="logo-badge">NP</span>
-        Nova Pulse
-      </div>
-      <div class="nav-links">
-        <a href="#about">概要</a>
-        <a href="#features">機能</a>
-        <a href="#timeline">ロードマップ</a>
-      </div>
-      <div class="nav-actions">
-        <button class="btn btn-ghost" id="themeToggle">Dark</button>
-        <button class="btn btn-primary" id="cta">デモを見る</button>
-      </div>
-    </nav>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+  <div class="paw-stream" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="logo">
+      <span class="logo-badge">NYA</span>
+      <span>モフ・カオス通信</span>
+    </div>
+    <button class="pulse-toggle" id="pulseToggle" type="button">鼓動ON</button>
   </header>
 
   <main>
-    <section class="hero" id="about">
-      <div>
-        <p class="pill">未来の体験をデザインする</p>
-        <h1>リアルタイムで進化する
-          <br />モダンUIプラットフォーム
-        </h1>
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <p class="tag">スマホで猫宇宙にダイブ</p>
+        <h1>奇天烈で優雅。<br />毛並みはそのまま、姿勢は変幻。</h1>
         <p>
-          Nova Pulseは、滑らかなアニメーションと洞察データを融合させた次世代のUI。
-          UI/UX、データ可視化、AIアシストを一つの体験に統合します。
+          こちらの猫はふわモフ白×黒×こげ茶の三層カラー。写真の色味をそのまま抽出して、
+          実写・イラスト・ポーズチェンジの三段変化に変換しました。
         </p>
         <div class="hero-actions">
-          <button class="btn btn-primary">体験を開始</button>
-          <button class="btn btn-ghost">資料を見る</button>
+          <button class="cta" id="scrollGallery" type="button">ギャラリーへ</button>
+          <button class="ghost" id="colorBlast" type="button">色爆発モード</button>
         </div>
-      </div>
-      <div class="hero-card">
-        <div class="glow"></div>
-        <h3>ライブダッシュボード</h3>
-        <p>AIによる予測とKPIモニタリングを同時に表示。</p>
         <div class="stats">
-          <div class="stat">
-            <h3 data-count="96">0</h3>
-            <p>応答速度</p>
+          <div>
+            <span>もふ密度</span>
+            <strong data-count="98">0</strong>
           </div>
-          <div class="stat">
-            <h3 data-count="78">0</h3>
-            <p>体験満足度</p>
+          <div>
+            <span>しっぽ風速</span>
+            <strong data-count="74">0</strong>
           </div>
-          <div class="stat">
-            <h3 data-count="24">0</h3>
-            <p>同時接続</p>
+          <div>
+            <span>視線圧</span>
+            <strong data-count="88">0</strong>
           </div>
         </div>
-        <canvas id="pulse"></canvas>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="photo photo-1" role="img" aria-label="白黒こげ茶の毛並みを維持した実写風の猫"></div>
+          <div class="caption">
+            <p>実写モード：色味は写真準拠。</p>
+            <span>ふわっと床に溶けるしっぽ。</span>
+          </div>
+        </div>
+        <div class="floating-badge">もふもふ率 100%</div>
       </div>
     </section>
 
-    <section class="fade-up" id="features">
+    <section class="gallery" id="gallery">
       <div class="section-title">
-        <h2>体験を加速する3つのコア機能</h2>
-        <span class="pill">UI + Data + Motion</span>
+        <h2>変幻ギャラリー</h2>
+        <p>同じ毛並みで、表情とポーズをぐにゃっと変化。</p>
       </div>
-      <div class="features">
-        <div class="feature">
-          <span>◎</span>
-          <h3>モーションエンジン</h3>
-          <p>スクロール連動アニメーションで、ブランド体験に深みを与えます。</p>
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <div class="photo photo-2" role="img" aria-label="写真を元にしたイラスト風の猫"></div>
+          <h3>イラスト化モード</h3>
+          <p>毛色はそのまま、線画と色面でポップに変換。</p>
+        </article>
+        <article class="gallery-card">
+          <div class="photo photo-3" role="img" aria-label="ポーズを変えた白黒こげ茶の猫"></div>
+          <h3>ポーズチェンジ</h3>
+          <p>体は丸く、視線は鋭く。毛並みだけは忠実に。</p>
+        </article>
+        <article class="gallery-card">
+          <div class="photo photo-4" role="img" aria-label="実写風の猫の横顔"></div>
+          <h3>横顔ズーム</h3>
+          <p>白い前髪と黒い耳、写真の色を固定したまま拡大。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="spotlight" id="powers">
+      <div class="section-title">
+        <h2>奇天烈ポイント</h2>
+        <p>スマホで揺れる、色と動きの猫マジック。</p>
+      </div>
+      <div class="power-grid">
+        <div class="power-card">
+          <h3>ダイナミック尻尾</h3>
+          <p>しっぽが風を巻き込むように揺れる演出で視線を吸着。</p>
         </div>
-        <div class="feature">
-          <span>◆</span>
-          <h3>アクティブラーニング</h3>
-          <p>ユーザー行動にあわせて情報密度を自動調整するスマートUI。</p>
+        <div class="power-card">
+          <h3>ネオンもふ反射</h3>
+          <p>白い毛が光を反射する様子をネオンで強調。</p>
         </div>
-        <div class="feature">
-          <span>✦</span>
-          <h3>直感的な分析</h3>
-          <p>視線誘導とダッシュボードが一体化した可視化パネル。</p>
+        <div class="power-card">
+          <h3>瞬きタイミング</h3>
+          <p>目のグリーンがきらり。瞬きで鼓動のリズムを演出。</p>
         </div>
       </div>
     </section>
 
-    <section class="fade-up" id="timeline">
-      <div class="section-title">
-        <h2>リリースロードマップ</h2>
-        <span class="pill">2024-2025</span>
+    <section class="cta-section">
+      <div>
+        <h2>今夜、猫宇宙へ。</h2>
+        <p>色も毛並みも守ったまま、動きだけを解放する奇天烈モバイルページ。</p>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <strong>Phase 01</strong>
-          <span>UXリサーチ + コンセプト設計</span>
-        </div>
-        <div class="timeline-item">
-          <strong>Phase 02</strong>
-          <span>AIアシスト / データレイヤー連携</span>
-        </div>
-        <div class="timeline-item">
-          <strong>Phase 03</strong>
-          <span>フルアニメーションUI &amp; デプロイ</span>
-        </div>
-      </div>
+      <button class="cta" id="backTop" type="button">トップにワープ</button>
     </section>
   </main>
 
   <footer>
-    <div>
-      <strong>Nova Pulse</strong>
-      <p>未来の体験を、いま。</p>
-    </div>
-    <div>
-      <p>contact@novapulse.io</p>
-      <p>Tokyo / Remote</p>
-    </div>
+    <p>Cat Color Memory: white #f5f2ee / black #1d1b1f / brown #6b5b4f / eye #8aa86b</p>
+    <small>Swipe & scroll for motion.</small>
   </footer>
 
   <script src="script.js"></script>
