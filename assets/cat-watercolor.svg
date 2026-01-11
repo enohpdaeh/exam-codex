@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#d7efe4" />
+      <stop offset="55%" stop-color="#b8e2d2" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#9bc9b8" stop-opacity="0.65" />
+    </radialGradient>
+    <radialGradient id="furLight" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#f6f0e8" />
+      <stop offset="70%" stop-color="#e8dfd2" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#d6ccc0" stop-opacity="0.75" />
+    </radialGradient>
+    <radialGradient id="furDark" cx="60%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#4c3f38" />
+      <stop offset="100%" stop-color="#2d2622" stop-opacity="0.8" />
+    </radialGradient>
+    <radialGradient id="furMocha" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#7b6658" />
+      <stop offset="100%" stop-color="#5c4b41" stop-opacity="0.85" />
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="6" />
+    </filter>
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.2" />
+      </feComponentTransfer>
+      <feBlend mode="multiply" in2="SourceGraphic" />
+    </filter>
+  </defs>
+  <rect width="720" height="520" fill="url(#bg)" />
+  <g filter="url(#paper)">
+    <ellipse cx="410" cy="300" rx="210" ry="150" fill="url(#furLight)" />
+    <ellipse cx="370" cy="280" rx="170" ry="120" fill="url(#furDark)" opacity="0.65" />
+    <ellipse cx="270" cy="350" rx="120" ry="80" fill="url(#furLight)" opacity="0.9" />
+    <ellipse cx="520" cy="300" rx="100" ry="70" fill="url(#furMocha)" opacity="0.6" />
+    <ellipse cx="480" cy="200" rx="90" ry="70" fill="url(#furLight)" />
+    <ellipse cx="450" cy="195" rx="70" ry="60" fill="url(#furDark)" opacity="0.45" />
+    <path d="M430 150 L450 110 L470 165" fill="#5a4c43" opacity="0.7" />
+    <path d="M500 160 L530 120 L535 175" fill="#5a4c43" opacity="0.7" />
+    <ellipse cx="520" cy="210" rx="14" ry="10" fill="#8aa86b" />
+    <ellipse cx="485" cy="215" rx="12" ry="9" fill="#8aa86b" />
+    <path d="M505 235 Q495 245 485 235" stroke="#5c4b41" stroke-width="3" fill="none" />
+    <path d="M520 245 Q505 265 490 255" stroke="#5c4b41" stroke-width="3" fill="none" />
+    <path d="M260 390 Q210 430 170 420" stroke="#5c4b41" stroke-width="26" stroke-linecap="round" opacity="0.65" />
+    <ellipse cx="410" cy="410" rx="60" ry="45" fill="url(#furLight)" opacity="0.85" />
+    <ellipse cx="450" cy="400" rx="40" ry="35" fill="url(#furLight)" opacity="0.75" />
+  </g>
+  <g filter="url(#soft)" opacity="0.35">
+    <ellipse cx="390" cy="320" rx="210" ry="120" fill="#f6f0e8" />
+  </g>
+</svg>

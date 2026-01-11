@@ -108,6 +108,7 @@ a {
   backdrop-filter: blur(12px);
   background: rgba(13, 11, 20, 0.6);
   border-bottom: 1px solid var(--stroke);
+  gap: 16px;
 }
 
 .logo {
@@ -115,6 +116,12 @@ a {
   align-items: center;
   gap: 12px;
   font-weight: 700;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo-badge {
@@ -136,6 +143,21 @@ a {
   padding: 8px 16px;
   border-radius: 999px;
   font-weight: 600;
+}
+
+.nav-link {
+  border-radius: 999px;
+  padding: 8px 16px;
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .hero {
